@@ -1,0 +1,49 @@
+server:
+  port: 80
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lambda
+    username: root
+    password: admin
+    max-active: 20
+    max-idle: 8
+    mix-idle: 8
+  thymeleaf:
+    mode: LEGACYHTML5
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    generate-ddl: true
+#druid:
+#    url: jdbc:mysql://localhost:3306/Mybatis
+#    username: root
+#    password: admin
+#    initial-size: 1
+#    min-idle: 1
+#    max-active: 20
+#    test-on-borrow: true
+mybatis:
+    type-aliases-package: com.lk.lambda.model
+    mapper-locations: classpath:mapper/*.xml
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#    <plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
+#        <!--主键自增回写方法,默认值MYSQL,详细说明请看文档-->
+#        <property name="IDENTITY" value="MYSQL"/>
+#        <!--通用Mapper接口，多个通用接口用逗号隔开-->
+#        <property name="mappers" value="com.github.abel533.mapper.Mapper"/>
+#      </plugin>
+
+#    configuration-properties: mappers=com.github.abel533.mapper.MapperlogImpl
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+mapper:
+    mappers: com.lk.lambda.utils.MyMapper
+    not-empty: false
+    identity: MYSQL
