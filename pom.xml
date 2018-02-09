@@ -29,7 +29,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-            <scope>true</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -130,14 +130,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <!--fork :  如果没有该项配置，则devtools不会起作用，即应用不会restart -->
-                    <fork>true</fork>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
                 <dependencies>
                     <dependency>
                         <groupId>org.springframework</groupId>
@@ -145,6 +137,9 @@
                         <version>1.2.5.RELEASE</version>
                     </dependency>
                 </dependencies>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>

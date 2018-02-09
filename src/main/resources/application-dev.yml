@@ -1,6 +1,9 @@
 server:
   port: 80
 spring:
+  freemarker:
+    cache: false
+
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/lambda
@@ -11,11 +14,18 @@ spring:
     mix-idle: 8
   thymeleaf:
     mode: LEGACYHTML5
+    cache: false
+  velocity:
+    cache: false
+  groovy:
+    template:
+      cache: false
   jpa:
     hibernate:
       ddl-auto: create
     show-sql: true
     generate-ddl: true
+
 #druid:
 #    url: jdbc:mysql://localhost:3306/Mybatis
 #    username: root
@@ -47,3 +57,12 @@ mapper:
     mappers: com.lk.lambda.utils.MyMapper
     not-empty: false
     identity: MYSQL
+
+#    Thymeleaf的配置：
+#    02.spring.thymeleaf.cache=false
+#    03.FreeMarker的配置：
+#    04.spring.freemarker.cache=false
+#    05.Groovy的配置：
+#    06.spring.groovy.template.cache=false
+#    07.Velocity的配置：
+#    08.spring.velocity.cache=false
